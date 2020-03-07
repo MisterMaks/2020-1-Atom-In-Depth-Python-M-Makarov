@@ -76,9 +76,7 @@ class CCoolList(list):
         return sum(self.lst) >= sum(self.other.lst)
 
     def get_other_list(self, other):
-        """
-        Получение объекта CCoolList из other, если это возможно, иначе ошибка
-        """
+        """Получение объекта CCoolList из other, если это возможно, иначе ошибка"""
         if type(other) is list:
             self.other = CCoolList(other)
         elif type(other) is CCoolList:
