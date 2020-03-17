@@ -4,7 +4,7 @@
 
 class MaxHeap:
     """Очередь с максимальным приоритетом (max heap)"""
-    def __init__(self, array):
+    def __init__(self, array: list) -> None:
         """Передается список и строится max heap"""
         self.array = array[:]
         self.heapify()
@@ -27,17 +27,17 @@ class MaxHeap:
         for i in range(len(self.array) // 2 - 1, -1, -1):
             self.sift_down(i)
 
-    def sift_up(self):
+    def sift_up(self) -> None:
         """Просеивание вверх"""
         index = len(self.array) - 1
         while index > 0:
             parent = (index - 1) // 2
             if self.array[parent] >= self.array[index]:
-                return True
+                return None
             self.array[index], self.array[parent] = self.array[parent], self.array[index]
             index = parent
 
-    def sift_down(self, i):
+    def sift_down(self, i: int) -> None:
         """Просеивание вниз"""
         left = 2 * i + 1
         right = 2 * i + 2
