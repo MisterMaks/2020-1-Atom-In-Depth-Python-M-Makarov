@@ -10,12 +10,9 @@ class ICache:
         self.cache_dict = collections.OrderedDict()
 
     def get(self, key: str) -> str:
-        """Пытаемся получить значение по ключу и перемещаем в конец"""
-        try:
-            self.cache_dict.move_to_end(key)
-            return self.cache_dict[key]
-        except KeyError:
-            return ""
+        """Получаем значение по ключу и перемещаем в конец"""
+        self.cache_dict.move_to_end(key)
+        return self.cache_dict[key]
 
     def set(self, key: str, value: str) -> None:
         """Если не превышаем размер кэша, то добавляем в конец
