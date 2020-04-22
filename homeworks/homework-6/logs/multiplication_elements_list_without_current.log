@@ -1,0 +1,3 @@
+ERROR    [2020-04-21 06:02:33,755] list iteration error for users input: object of type 'int' has no len()
+ERROR    [2020-04-21 06:02:33,755] type(element) in users list input not int or float
+ERROR    [2020-04-21 06:02:33,755] type(element) in users list input not int or float
