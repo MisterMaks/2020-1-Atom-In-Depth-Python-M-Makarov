@@ -5,3 +5,6 @@ venv-2020-1-Atom-In-Depth-Python-M-Makarov/
 .idea/
 exchange_rate_api_config.py
 .vscode/
+homeworks/homework-4/orm.py
+homeworks/homework-4/descriptors.py
+homeworks/homework-4/db_config.yaml
