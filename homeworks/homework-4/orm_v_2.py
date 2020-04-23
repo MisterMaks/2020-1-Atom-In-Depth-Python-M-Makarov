@@ -8,9 +8,11 @@ with open('db_config.yaml') as f:
     db_data = yaml.safe_load(f)
 
 
-# ORM
 class Models:
-    # Типы полей БД
+    """
+    ORM
+    Типы полей БД
+    """
     class IntegerField:
         """Целые числа"""
         default = Int()
@@ -61,10 +63,8 @@ class Models:
             if not null:
                 self.name = 'BOOLEAN NOT NULL'
 
-    # Методы ORM
     class Model:
-        # values = DataStruct()
-
+        """Методы ORM"""
         def sql_request(self, command, fetch=None, lst=None):
             """
             Запрос к БД
@@ -88,8 +88,6 @@ class Models:
                     command = f"SELECT column_name FROM information_schema.columns WHERE information_schema.columns.table_name='{self.__class__.__name__.lower()}'"
                     cursor.execute(command)
                     columns = [column[0] for column in cursor.fetchall()]
-                # print(columns)
-                # print(data)
                 data_list = []
                 for values in data:
                     data_dict = {}
@@ -109,7 +107,6 @@ class Models:
 
         def check_type(self, value, type_value):
             """Проверка типов"""
-            # print(type(value))
             if type(value) == type_value.type:
                 if 'max_len' in type_value.__dict__:
                     if len(value) <= type_value.max_len:
