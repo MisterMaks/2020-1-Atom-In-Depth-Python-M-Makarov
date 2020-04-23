@@ -8,7 +8,7 @@ class Int:
 
     def __set__(self, instance, value):
         if type(value) != int:
-            raise ValueError('type(value) != int')
+            raise Exception('type(value) != int')
         instance.__dict__[self.name] = value
 
     def __set_name__(self, owner, name):
@@ -22,7 +22,7 @@ class Text:
 
     def __set__(self, instance, value):
         if type(value) != str:
-            raise ValueError('type(value) != str')
+            raise Exception('type(value) != str')
         instance.__dict__[self.name] = value
 
     def __set_name__(self, owner, name):
@@ -36,9 +36,9 @@ class Char:
 
     def __set__(self, instance, value):
         if type(value) != str:
-            raise ValueError('type(value) != str')
+            raise Exception('type(value) != str')
         if len(value) > instance.max_len:
-            raise ValueError('len(value) > max_len')
+            raise Exception('len(value) > max_len')
         instance.__dict__[self.name] = value
 
     def __set_name__(self, owner, name):
@@ -52,7 +52,7 @@ class Bool:
 
     def __set__(self, instance, value):
         if type(value) != bool:
-            raise ValueError('type(value) != bool')
+            raise Exception('type(value) != bool')
         instance.__dict__[self.name] = value
 
     def __set_name__(self, owner, name):

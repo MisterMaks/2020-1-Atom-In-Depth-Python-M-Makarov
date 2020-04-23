@@ -27,9 +27,9 @@ class Models:
 
     class CharField:
         """ Строка """
+        default = Char()
         max_len = Int()
         null = Bool()
-        default = Char()
 
         def __init__(self, default='', max_len=128, null=False):
             self.char = default
@@ -53,8 +53,8 @@ class Models:
 
     class BooleanField:
         """ Булевы значения """
-        null = Bool()
         default = Bool()
+        null = Bool()
 
         def __init__(self, default=False, null=False):
             self.bool = default
@@ -108,14 +108,10 @@ class Models:
         def check_type(self, value, type_value):
             """ Проверка типов """
             if type(value) == type_value.type:
-                if 'max_len' in type_value.__dict__:
-                    if len(value) <= type_value.max_len:
-                        return None
-                    else:
-                        raise ValueError(f'len {value} should be <= {type_value.max_len}')
-                return None
+                if 'max_len' in type_value.__dict__ and len(value) > type_value.max_len:
+                    raise Exception(f'len({value}) should be <= {type_value.max_len}')
             else:
-                raise ValueError(f'Value {value} is incorrect type')
+                raise Exception(f'type({value}) should be {type_value.type}')
 
         def add(self, values):
             """ Добавление данных в таблицу """
