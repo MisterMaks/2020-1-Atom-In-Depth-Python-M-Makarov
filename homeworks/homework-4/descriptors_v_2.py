@@ -1,7 +1,7 @@
-"""Здесь описаны дескрипторы для типов данных"""
+""" Здесь описаны дескрипторы для типов данных """
 
 class Int:
-    """Дескриптор для типа INTEGER"""
+    """ Дескриптор для типа INTEGER """
     def __get__(self, instance, owner):
         return instance.__dict__[self.name]
 
@@ -15,7 +15,7 @@ class Int:
 
 
 class Text:
-    """Дескриптор для типа TEXT"""
+    """ Дескриптор для типа TEXT """
     def __get__(self, instance, owner):
         return instance.__dict__[self.name]
 
@@ -29,7 +29,7 @@ class Text:
 
 
 class Char:
-    """Дескриптор для типа CHAR"""
+    """ Дескриптор для типа CHAR """
     def __get__(self, instance, owner):
         return instance.__dict__[self.name]
 
@@ -45,7 +45,7 @@ class Char:
 
 
 class Bool:
-    """Дескриптор для типа BOOL"""
+    """ Дескриптор для типа BOOL """
     def __get__(self, instance, owner):
         return instance.__dict__[self.name]
 

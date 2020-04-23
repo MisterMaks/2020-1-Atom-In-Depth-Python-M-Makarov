@@ -29,12 +29,12 @@ def db_request(command):
 
 
 class MyTestCase(unittest.TestCase):
-    """Тесты"""
+    """ Тесты """
 
     bla_bla_table = BlaBlaTable()
 
     def test_orm(self):
-        """Тесты"""
+        """ Тесты """
 
         # Проверяем, что таблица еще не создана
         command = "SELECT table_name FROM information_schema.tables"
@@ -71,7 +71,8 @@ class MyTestCase(unittest.TestCase):
                          [{'id': 1, 'bla_int': 7, 'bla_char': 'Bla', 'bla_text': 'BlaBla', 'bla_bool': None}],
                          """Should be: {'id': 1, 'bla_int': 7, 'bla_char': 'Bla', 'bla_text': 'BlaBla', 'bla_bool': None}""")
 
-        self.assertEqual(self.bla_bla_table.all(), [{'id': 1, 'bla_int': 7, 'bla_char': 'Bla', 'bla_text': 'BlaBla', 'bla_bool': None}, {'id': 2, 'bla_int': 2020, 'bla_char': 'Bla_1', 'bla_text': 'BlaBla_1', 'bla_bool': True}],
+        self.assertEqual(self.bla_bla_table.all(),
+                         [{'id': 1, 'bla_int': 7, 'bla_char': 'Bla', 'bla_text': 'BlaBla', 'bla_bool': None}, {'id': 2, 'bla_int': 2020, 'bla_char': 'Bla_1', 'bla_text': 'BlaBla_1', 'bla_bool': True}],
                          """Should be: [{'id': 1, 'bla_int': 7, 'bla_char': 'Bla', 'bla_text': 'BlaBla', 'bla_bool': None}, {'id': 2, 'bla_int': 2020, 'bla_char': 'Bla_1', 'bla_text': 'BlaBla_1', 'bla_bool': True}]""")
 
         # Проверяем delete
