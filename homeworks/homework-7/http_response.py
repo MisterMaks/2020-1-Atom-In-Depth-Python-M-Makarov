@@ -9,7 +9,7 @@ class HttpResponse:
         self.status_code = status_code
         self.type_data = type_data
         self.data = data
-        if type(self.data) == dict:
+        if status_code == 404:
             self.data = json.dumps(self.data, ensure_ascii=False).encode("utf-8")
 
 
