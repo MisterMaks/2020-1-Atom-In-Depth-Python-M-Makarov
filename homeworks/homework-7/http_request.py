@@ -1,7 +1,9 @@
+"""Объект http request"""
 import json
 
 
 class MethodError(Exception):
+    """Ошибка метода"""
     pass
 
 

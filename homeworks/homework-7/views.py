@@ -1,3 +1,4 @@
+"""views.py по аналогии с Django"""
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -15,7 +16,7 @@ def get_web_page_words_statistics_most_common_10(request):
             web_page = requests.get("http://" + request).text
     web_page_soup = BeautifulSoup(web_page, features='html.parser')
     web_page_text = web_page_soup.get_text()
-    web_page_words = re.split(r'\W', web_page_text)
+    web_page_words = [word.lower() for word in re.split(r'\W', web_page_text)]
     words_statistics_dict = {}
     for word in web_page_words:
         if len(word) != 0:
@@ -25,5 +26,3 @@ def get_web_page_words_statistics_most_common_10(request):
                 words_statistics_dict[word] += 1
     words_statistics_dict_most_common_10 = dict(sorted(words_statistics_dict.items(), key=itemgetter(1), reverse=True)[:10])
     return JsonResponse(data=words_statistics_dict_most_common_10)
-
-# print(get_web_page_words_statistics_most_common_10('https://yandex.ru'))

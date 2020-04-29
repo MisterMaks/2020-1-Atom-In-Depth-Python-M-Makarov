@@ -1,6 +1,9 @@
+"""Объект http response"""
 import json
 
+
 class TypeDataResponseError(Exception):
+    """Ошибка типа"""
     pass
 
 
