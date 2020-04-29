@@ -8,3 +8,5 @@ exchange_rate_api_config.py
 homeworks/homework-4/orm.py
 homeworks/homework-4/descriptors.py
 homeworks/homework-4/db_config.yaml
+homeworks/homework-6/logs/multiplication_elements_list_without_current.log
+homeworks/homework-7/logs/server.log
