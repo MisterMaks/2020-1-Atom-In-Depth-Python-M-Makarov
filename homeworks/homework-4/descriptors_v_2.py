@@ -7,7 +7,7 @@ class Int:
         return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
-        if type(value) != int:
+        if not isinstance(value, int):
             raise Exception('type(value) != int')
         instance.__dict__[self.name] = value
 
@@ -21,7 +21,7 @@ class Text:
         return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
-        if type(value) != str:
+        if not isinstance(value, str):
             raise Exception('type(value) != str')
         instance.__dict__[self.name] = value
 
@@ -35,7 +35,7 @@ class Char:
         return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
-        if type(value) != str:
+        if not isinstance(value, str):
             raise Exception('type(value) != str')
         if len(value) > instance.max_len:
             raise Exception('len(value) > max_len')
@@ -51,7 +51,7 @@ class Bool:
         return instance.__dict__[self.name]
 
     def __set__(self, instance, value):
-        if type(value) != bool:
+        if not isinstance(value, bool):
             raise Exception('type(value) != bool')
         instance.__dict__[self.name] = value
 
