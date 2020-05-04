@@ -106,7 +106,7 @@ class Model:
 
     def check_type(self, value, type_value):
         """ Проверка типов """
-        if type(value) == type_value.type:
+        if isinstance(value, type_value.type):
             if 'max_len' in type_value.__dict__ and len(value) > type_value.max_len:
                 raise Exception(f'len({value}) should be <= {type_value.max_len}')
         else:
